@@ -23,7 +23,7 @@ const repos = new Git(join(__dirname, '../repo'), {
   autoCreate: true,
 });
 
-repos.on('push', (push) => {
+repos.on('push', {type: 'http'}, (push) => {
   console.log(`push ${push.repo}/${push.commit} ( ${push.branch} )`);
   push.accept();
 });
